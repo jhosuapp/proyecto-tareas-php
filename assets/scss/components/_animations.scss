@@ -1,0 +1,19 @@
+@keyframes floating {
+    from {
+		transform: translate(0, 0);
+	}
+	55% {
+		transform: translate(0, 15px);
+	}
+    to {
+		transform: translate(0, -0)
+	}
+}
+@keyframes bgMove {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 1000vw 0;
+	}
+}

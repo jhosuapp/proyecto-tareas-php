@@ -1,0 +1,130 @@
+.tareas{
+    width: 90%;
+    max-width: 1400px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    &__titulo{
+        color: color('primario');
+        font-size: 30px;
+        text-align: center;
+        max-width: 90%;
+        margin: 40px auto;
+    }
+    &__item{
+        background: color('rojo');
+        padding: 10px 30px;
+        border-radius: 5px;
+        transition: .2s all ease;
+        color: color('primario');
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 0px 0px 10px 0px color('secundario');
+        }
+        &.hidden{
+            display: none;
+        }
+        &-titulo{
+            font-size: 14px;
+            font-weight: lighter;
+        }
+    }
+}
+.form__tareas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 90%;
+    margin: auto;
+    &-input{
+        height: 40px;
+        min-width: 200px;
+        max-width: 200px;
+        padding: 0 10px;
+        border-radius: 5px;
+        border: none;
+        outline: inherit;
+        transition: .2s;
+        &:focus{
+            box-shadow: 0px 0px 10px 0px color('secundario');
+        }
+    }
+    &-submit{
+        height: 40px;
+        padding: 0 20px;
+        color: color('primario');
+        background-color: color('rojo');
+        border-radius: 5px;
+        border: none;
+        outline: inherit;
+        border: 1px solid color('primario');
+        cursor: pointer;
+        font-weight: bold;
+        transition: .2s all ease;
+        &:hover{
+            background: color('primario');
+            color: color('secundario');
+        }
+    }
+}
+
+.modal__tareas{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s all ease;
+    &.active{
+        opacity: 1;
+        pointer-events: all;
+    }
+    &-contenedor{
+        background: color('primario');
+        padding: 30px 40px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px color('secundario');
+        max-width: 500px;
+    }
+    &-titulo{
+        font-size: 25px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    &-contenedor-botones{
+        display: flex;
+        width: 100%;
+        gap: 50px;
+    }
+    &-button{
+        flex: 1;
+        cursor: pointer;
+        outline: inherit;
+        border: none;
+        color: color('primario');
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+        transition: .3s all ease;
+        background: color('rojo');
+        text-align: center;
+        &--verde{
+            background: color('verde');
+        }
+        &:hover{
+            opacity: .7;
+        }
+    }
+}
