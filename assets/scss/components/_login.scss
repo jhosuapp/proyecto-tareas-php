@@ -4,7 +4,7 @@
     
     width: 100vw;
     height: 100vh;
-    background: rgb(0, 0, 0, .15);
+    // background: rgb(0, 0, 0, .15);
     position: fixed;
     display: flex;
     justify-content: center;
@@ -173,4 +173,28 @@
         bottom: 10px;
         opacity: .5;
     }
+}
+
+@media (max-width: 580px){
+    .login{
+        &__nubes{
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            animation: floating 3.5s ease-in-out infinite;
+            display: none;
+            &--two{
+                position: absolute;
+                top: 20px;
+                animation: floating 3.5s ease-in-out infinite;
+                transform: rotateX(180deg);
+                max-width: 250px;
+                left: calc(50% - 125px);
+            }
+        }
+        &__waves__item{
+            height: 40px;
+        }
+    }
+   
 }

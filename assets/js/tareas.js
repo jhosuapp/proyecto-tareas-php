@@ -47,6 +47,7 @@ var getAllItems = document.querySelectorAll('.tareas__item');
 getAllItems.forEach((data) =>{
     if(data.getAttribute('data-storage') == 'datos'){
         data.classList.add('hidden');
+        data.classList.remove('tareas__item');
     }
 });
 
@@ -74,3 +75,38 @@ for(i = 0; i < getAllTareasInFor.length; i++){
     });
 }
 
+var getAllWorkForMore = document.querySelectorAll('.tareas__item');
+var getTheButtonShowMore = document.querySelector('#show-more');
+getTheButtonShowMore.classList.add('inactive');
+
+getAllWorkForMore.forEach((data, indice) =>{
+    
+    if(indice >= 6){
+        data.classList.add('dnone');
+        getTheButtonShowMore.classList.remove('inactive');
+        
+    }
+});
+
+var getAllDnone = document.querySelectorAll('.dnone');
+
+
+
+getTheButtonShowMore.addEventListener('click', ()=>{
+    getAllDnone.forEach((data, indice)=>{
+        if(indice < 0){
+            data.classList.remove('dnone');
+        }
+    });
+
+    var getAllDnoneTwo = document.querySelectorAll('.dnone');
+    getAllDnoneTwo.forEach((data, indice)=>{
+        if(indice < 2){
+            data.classList.remove('dnone');
+        }
+    });
+
+    if(getAllDnoneTwo.length == 2 || getAllDnoneTwo.length == 1){
+        getTheButtonShowMore.classList.add('inactive');
+    }
+});

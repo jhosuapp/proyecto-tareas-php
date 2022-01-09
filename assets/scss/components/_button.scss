@@ -22,7 +22,16 @@ $baby-blue: #f8faff;
     &:focus {
       outline: 0;
     }
-    
+    &.inactive{
+      display: none;
+    }
+    &--width{
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 40px;
+    }
     &:before, &:after{
       position: absolute;
       content: '';

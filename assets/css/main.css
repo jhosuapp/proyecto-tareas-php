@@ -31,7 +31,6 @@ body {
 .login {
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.15);
   position: fixed;
   display: flex;
   justify-content: center;
@@ -202,20 +201,62 @@ body {
   opacity: 0.5;
 }
 
+@media (max-width: 580px) {
+  .login__nubes {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    animation: floating 3.5s ease-in-out infinite;
+    display: none;
+  }
+  .login__nubes--two {
+    position: absolute;
+    top: 20px;
+    animation: floating 3.5s ease-in-out infinite;
+    transform: rotateX(180deg);
+    max-width: 250px;
+    left: calc(50% - 125px);
+  }
+  .login__waves__item {
+    height: 40px;
+  }
+}
 .tareas {
   width: 90%;
   max-width: 1400px;
-  margin: 60px auto;
+  margin: auto;
+  padding: 60px 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+.tareas__background {
+  height: fit-content;
+  bottom: 0;
+  position: absolute;
+  object-fit: cover;
+  object-position: center bottom;
+  width: 100%;
+  min-height: 100vh;
+}
+.tareas__background__contenedor {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .tareas__titulo {
   color: #fff;
   font-size: 30px;
   text-align: center;
   max-width: 90%;
-  margin: 40px auto;
+  padding: 40px 0 30px 0;
+  margin: auto;
 }
 .tareas__item {
   background: #d80000;
@@ -225,17 +266,30 @@ body {
   color: #fff;
   font-size: 22px;
   font-weight: bold;
+  transition: 0.3s all ease;
   cursor: pointer;
 }
 .tareas__item:hover {
   box-shadow: 0px 0px 10px 0px #000;
 }
-.tareas__item.hidden {
-  display: none;
+.tareas__item.dnone {
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
 }
 .tareas__item-titulo {
   font-size: 14px;
   font-weight: lighter;
+}
+.tareas__contenedor__all {
+  position: relative;
+  min-height: 100vh;
+  background-color: #00AFFF;
+  z-index: 9;
+}
+
+.hidden {
+  display: none;
 }
 
 .form__tareas {
@@ -334,6 +388,23 @@ body {
   opacity: 0.7;
 }
 
+@media (max-width: 580px) {
+  .form__tareas {
+    flex-wrap: wrap;
+  }
+
+  .tareas {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .modal__tareas-contenedor {
+    max-width: 90%;
+    margin: auto;
+  }
+  .modal__tareas-titulo {
+    text-align: center;
+  }
+}
 .bubbly-button {
   font-family: "Helvetica", "Arial", sans-serif;
   display: inline-block;
@@ -355,6 +426,16 @@ body {
 }
 .bubbly-button:focus {
   outline: 0;
+}
+.bubbly-button.inactive {
+  display: none;
+}
+.bubbly-button--width {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
 }
 .bubbly-button:before, .bubbly-button:after {
   position: absolute;

@@ -1,16 +1,38 @@
 .tareas{
     width: 90%;
     max-width: 1400px;
-    margin: 60px auto;
+    margin:auto;
+    padding: 60px 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    &__background{
+        height: fit-content;
+        bottom: 0;
+        position: absolute;
+        object-fit: cover;
+        object-position: center bottom;
+        width: 100%;
+        min-height: 100vh;
+        &__contenedor{
+            height: 100%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
     &__titulo{
         color: color('primario');
         font-size: 30px;
         text-align: center;
         max-width: 90%;
-        margin: 40px auto;
+        padding: 40px 0 30px 0;
+        margin: auto;
     }
     &__item{
         background: color('rojo');
@@ -20,18 +42,30 @@
         color: color('primario');
         font-size: 22px;
         font-weight: bold;
+        transition: .3s all ease;
         cursor: pointer;
         &:hover{
             box-shadow: 0px 0px 10px 0px color('secundario');
         }
-        &.hidden{
-            display: none;
+        &.dnone{
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
         }
         &-titulo{
             font-size: 14px;
             font-weight: lighter;
         }
     }
+    &__contenedor__all{
+        position: relative;
+        min-height: 100vh;
+        background-color: #00AFFF;
+        z-index: 9;
+    }
+}
+.hidden{
+    display: none;
 }
 .form__tareas{
     display: flex;
@@ -125,6 +159,23 @@
         }
         &:hover{
             opacity: .7;
+        }
+    }
+}
+@media(max-width: 580px){
+    .form__tareas{
+        flex-wrap: wrap;
+    }
+    .tareas{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .modal__tareas{
+        &-contenedor{
+            max-width: 90%;
+            margin: auto;
+        }
+        &-titulo{
+            text-align: center;
         }
     }
 }
